@@ -22,11 +22,11 @@ In consideration of ethical and privacy concerns, I chose to apply AI – specif
 
 ### Methods
 The logic of the work followed these steps:
-1. Retrieve all item UUIDs from the collection UUID. [See Python Code](https://github.com/yooylee/old-theses-metadata-enhancement/blob/main/get_bitstreamUUID.py).
+1. Retrieve all item UUIDs from the collection UUID. 
   * Item UUIDs are required when updating `dc.language` field.
 2. Retrieve all bitstream UUIDs associated with each item.
-  * Bitstream UUIDs are required to download the corresponding PDF files.
-3. Download the PDF files into the secure computing environment.
+  * Bitstream UUIDs are required to download the corresponding PDF files. [See Python Code](https://github.com/yooylee/old-theses-metadata-enhancement/blob/main/get_bitstreamUUID.py).
+3. Download the PDF files into the secure computing environment. [See Python Code](https://github.com/yooylee/old-theses-metadata-enhancement/blob/main/get_download_files.py).
 4. Extract text from the PDFs, accounting for both text-based and image-based files.
 5. Detect the language of the extracted full text.
 6. Conduct quality assurance checks to validate results.
