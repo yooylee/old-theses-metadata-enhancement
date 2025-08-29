@@ -28,5 +28,25 @@ The logic of the work followed these steps:
   * Bitstream UUIDs are required to download the corresponding PDF files. [See Python Code](https://github.com/yooylee/old-theses-metadata-enhancement/blob/main/get_bitstreamUUID.py).
 3. Download the PDF files into the secure computing environment. [See Python Code](https://github.com/yooylee/old-theses-metadata-enhancement/blob/main/get_download_files.py).
 4. Extract text from the PDFs, accounting for both text-based and image-based files.
+  * [tesseract](https://github.com/tesseract-ocr/tesseract) and [pytesseract](https://pypi.org/project/pytesseract/): used for extracting text from image-based PDFs (OCR).
+  * [pdf2image](https://pypi.org/project/pdf2image/): Applied when direct text extraction was unreliable, particularly with scanned PDFs.
+  * [PyMuPDF](https://pymupdf.readthedocs.io/en/latest/): Used to extract text from standard, text-based PDFs.
 5. Detect the language of the extracted full text.
+  * [langdetect](https://pypi.org/project/langdetect/): a Python port of Google’s language-detection library.
+  * [lingua](https://github.com/pemistahl/lingua): a rule-based language detection library for cross-verification.
+  * Optimization: To reduce computing power and energy consumption, language detection was performed on only the first 20 pages per thesis, with image conversion set at 100 dpi.
+  * [See Python Code](https://github.com/yooylee/old-theses-metadata-enhancement/blob/main/get_lang_detect.py).
 6. Conduct quality assurance checks to validate results.
+  * Threshold check: Required at least 95% agreement between `langdetect` and `lingua`.
+    * Items flagged for disagreement were subject to human verification.
+  * Random sampling : Applied a manual review using a 95% confidence level with 5% margin of errors.
+
+## Next Steps
+1.	Generate keywords and abstracts (in progress).
+2.	Extract additional metadata, including degree, contributor, and department information.
+3.	Batch update records in RUOR.
+4. Batch update metadata in DataCite, including Publisher using the ROR ID.
+
+
+
+
