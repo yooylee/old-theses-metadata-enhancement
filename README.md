@@ -22,7 +22,7 @@ In consideration of ethical and privacy concerns, I chose to apply AI – specif
 
 ### Methods
 The logic of the work followed these steps:
-1. Retrieve all item UUIDs from the collection UUID.
+1. Retrieve all item UUIDs from the collection UUID. [See Python Code](https://github.com/yooylee/old-theses-metadata-enhancement/blob/main/get_bitstreamUUID.py).
   * Item UUIDs are required when updating `dc.language` field.
 2. Retrieve all bitstream UUIDs associated with each item.
   * Bitstream UUIDs are required to download the corresponding PDF files.
